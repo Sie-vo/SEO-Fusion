@@ -27,8 +27,9 @@ if (!function_exists('generate_slug')) {
 
 if (!function_exists('ensure_seo_table')) {
     function ensure_seo_table() {
+        global $db_prefix;
         // Create table if it doesn't exist (best effort)
-        $sql = "CREATE TABLE IF NOT EXISTS `seo_urls` (
+        $sql = "CREATE TABLE IF NOT EXISTS `".$db_prefix."seo_urls` (
             `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
             `slug` VARCHAR(255) NOT NULL,
             `type` VARCHAR(50) NOT NULL,
@@ -37,7 +38,7 @@ if (!function_exists('ensure_seo_table')) {
             `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
             PRIMARY KEY (`id`),
             UNIQUE KEY `slug_unique` (`slug`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;";
+        ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;";
 
         if (function_exists('dbquery')) {
             @dbquery($sql);
