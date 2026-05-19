@@ -16,6 +16,10 @@
 | written permission from the original author(s).
 +--------------------------------------------------------*/
 if (!defined("IN_FUSION")) { die("Access Denied"); }
+/**
+ * @var array $locale
+ * @var string $aidlink
+ */
 
 include LOCALE.LOCALESET."admin/main.php";
 

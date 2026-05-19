@@ -16,6 +16,13 @@
 | written permission from the original author(s).
 +--------------------------------------------------------*/
 require_once "../maincore.php";
+/**
+ * @var array $userdata
+ * @var mixed $pages
+ * @var string $aidlink
+ * @var array $locale
+ * @var array $settings
+ */
 
 if (!iADMIN || $userdata['user_rights'] == "" || !defined("iAUTH") || !isset($_GET['aid']) || $_GET['aid'] != iAUTH) { redirect("../index.php"); }
 
