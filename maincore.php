@@ -43,7 +43,7 @@ define("BASEDIR", $folder_level);
 require_once BASEDIR."config.php";
 
 // If config.php is empty, activate setup.php script
-if (!isset($db_name)) { redirect("setup.php"); }
+if (!isset($db_name)) { redirect("setup/index.php"); }
 
 // if db port not defined, set it to standard value
 if(!IsSet($db_port)) { $db_port = 3306; }
@@ -53,6 +53,11 @@ require_once BASEDIR."includes/multisite_include.php";
 if(IsSet($db_driver) && $db_driver == 'mysqli') { include(BASEDIR."includes/db_handlers/mysqli_functions_include.php"); }
 else { include(BASEDIR."includes/db_handlers/pdo_functions_include.php"); }
 
+/**
+ * @var string $db_host
+ * @var string $db_user
+ * @var string $db_pass
+ */
 // Establish mySQL database connection
 $link = @dbconnect($db_host, $db_user, $db_pass, $db_name, $db_port);
 //Set no strict mode for compatibility with MySQL Versions 5.7 and higher

@@ -3,8 +3,8 @@
  * @var array $locale
  */
 // Allgemeines
-$locale['title']     = "PHP-Fusion v7 Installation";
-$locale['sub-title'] = "PHP-Fusion v7 Installation";
+$locale['title']     = "SEO-Fusion v1 Installation";
+$locale['sub-title'] = "SEO-Fusion v1 Installation";
 $locale['xml_lang']  = "de";
 $locale['charset']   = "UTF-8";
 
@@ -139,6 +139,7 @@ $locale['128']  = "Admin Passw&ouml;rter zur&uuml;cksetzen";
 $locale['129']  = "Fehlerlog";
 $locale['129a'] = "Benutzerlog";
 $locale['129b'] = "robots.txt";
+$locale['129c'] = "SEO-URL Batch oder einzeln";
 
 // Standart Daten - Navigation
 $locale['130'] = "Startseite";
