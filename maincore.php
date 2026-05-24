@@ -36,7 +36,7 @@ if (stripget($_GET)) {
 $folder_level = ""; $i = 0;
 while (!file_exists($folder_level."config.php")) {
 	$folder_level .= "../"; $i++;
-	if ($i == 7) { die("config.php file not found"); }
+	if ($i == 7) { redirect("setup/index.php"); }
 }
 define("BASEDIR", $folder_level);
 

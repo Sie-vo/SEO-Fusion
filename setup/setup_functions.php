@@ -47,3 +47,26 @@ function getCurrentURL() {
 function strleft(string $s1,string $s2) {
 	return substr($s1, 0, strpos($s1, $s2));
 }
+
+function makefilelist(string $folder,string $filter, $sort = true, $type = "files", $ext_filter = "") {
+	$res = array();
+	$filter = explode("|", $filter);
+	if ($type == "files" && !empty($ext_filter)) {
+		$ext_filter = explode("|", strtolower($ext_filter));
+	}
+	$temp = opendir($folder);
+	while ($file = readdir($temp)) {
+		if ($type == "files" && !in_array($file, $filter)) {
+			if (!empty($ext_filter)) {
+				if (!in_array(substr(strtolower(stristr($file, '.')), +1), $ext_filter) && !is_dir($folder.$file)) { $res[] = $file; }
+			} else {
+				if (!is_dir($folder.$file)) { $res[] = $file; }
+			}
+		} elseif ($type == "folders" && !in_array($file, $filter)) {
+			if (is_dir($folder.$file)) { $res[] = $file; }
+		}
+	}
+	closedir($temp);
+	if ($sort) { sort($res); }
+	return $res;
+}

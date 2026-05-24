@@ -27,7 +27,7 @@ if(!defined('IN_FUSION')) die('No direct access allowed');
  * @var string $db_name
  * @var string $db_prefix
  */
-render_header($locale['title']);
+echo render_header($locale['title']);
 echo '<div class="container">
     <div class="row justify-content-center">
         <!-- Volle Breite (col-12) oder zentriert (col-lg-10) -->
@@ -432,4 +432,4 @@ require_once "../config.php";
         </main>
     </div>
 </div>';
-render_footer();
+echo render_footer();

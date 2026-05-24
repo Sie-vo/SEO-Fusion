@@ -22,7 +22,7 @@ if(!defined('IN_FUSION')) die('No direct access allowed');
 /**
  * @var array $locale
  */
-render_header($locale['title']);
+echo render_header($locale['title']);
 echo '<div class="container">
     <div class="row justify-content-center">
         <!-- Volle Breite (col-12) oder zentriert (col-lg-10) -->
@@ -114,4 +114,4 @@ if (!file_exists("config.php")) {
         </main>
     </div>
 </div>';
-render_footer();
+echo render_footer();

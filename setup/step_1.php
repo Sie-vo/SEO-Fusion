@@ -22,7 +22,7 @@ if(!defined('IN_FUSION')) die('No direct access allowed');
 /**
  * @var array $locale
  */
-render_header($locale['title']);
+echo render_header($locale['title']);
 echo '<div class="container">
     <div class="row justify-content-center">
         <!-- Volle Breite (col-12) oder zentriert (col-lg-10) -->
@@ -33,7 +33,7 @@ echo '<h1>'.$locale['title'].'</h1>
                 <div class="card mt-4">
                     <div class="card-body">';
 echo "<form name='setupform' method='post' action='index.php'>\n";
-$locale_files = makefilelist("locale/", ".svn|.|..", true, "folders");
+$locale_files = makefilelist("../locale/", ".svn|.|..", true, "folders");
 $locale_list = makefileopts($locale_files);
 echo $locale['010']."<br /><br />";
 echo "<select name='localeset' class='form-select'>\n";
@@ -48,4 +48,4 @@ echo '</div>
         </main>
     </div>
 </div>';
-render_footer();
+echo render_footer();

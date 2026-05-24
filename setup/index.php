@@ -20,6 +20,11 @@
 define("FUSION_SELF", basename($_SERVER['PHP_SELF']));
 define("IN_FUSION", true);
 
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
+require_once('setup_functions.php');
+
 if (isset($_POST['localeset']) && file_exists("../locale/".$_POST['localeset']) && is_dir("locale/".$_POST['localeset'])) {
 	include "../locale/".$_POST['localeset']."/setup.php";
 } else {
@@ -39,38 +44,38 @@ if (!isset($_POST['step']) || $_POST['step'] == "" || $_POST['step'] == "1") {
 
 switch ($step) {
     case "1":
-        require_once("header.php");
-        require_once("step_1.php");
+        require_once('header.php');
         require_once("footer.php");
+        require_once("step_1.php");
         exit;
     case "2":
         require_once("header.php");
-        require_once("step_2.php");
         require_once("footer.php");
+        require_once("step_2.php");
         exit;
     case "3":
         require_once("header.php");
-        require_once("step_3.php");
         require_once("footer.php");
+        require_once("step_3.php");
         exit;
     case "4":
          require_once("header.php");
-        require_once("step_4.php");
         require_once("footer.php");
+        require_once("step_4.php");
         exit;
     case "5":
         require_once("header.php");
-        require_once("step_5.php");
         require_once("footer.php");
+        require_once("step_5.php");
         exit;
     case "6":
         require_once("header.php");
-        require_once "step_6.php";
         require_once("footer.php");
+        require_once "step_6.php";
         exit;
     default:
         require_once("header.php");
-        require_once("step_1.php");
         require_once("footer.php");
+        require_once("step_1.php");
         exit;
 }
