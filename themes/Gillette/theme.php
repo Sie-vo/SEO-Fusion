@@ -1,4 +1,5 @@
 <?php
+
 if (!defined("IN_FUSION")) { die("Access Denied"); }
 
 define("THEME_BULLET", "<span class='bullet'>&middot;</span>");

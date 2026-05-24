@@ -24,8 +24,7 @@ if (!defined("IN_FUSION")) { die("Access Denied"); }
 define("ADMIN_PANEL", true);
 
 require_once INCLUDES."output_handling_include.php";
-require_once INCLUDES."header_includes.php";
-require_once THEME."theme.php";
+require_once "admin_themes/".$settings['admin_theme']."theme.php";
 
 if ($settings['maintenance'] == "1" && !iADMIN) { redirect(BASEDIR."maintenance.php"); }
 if (iMEMBER) { $result = dbquery("UPDATE ".DB_USERS." SET user_lastvisit='".time()."', user_ip='".USER_IP."', user_ip_type='".USER_IP_TYPE."' WHERE user_id='".$userdata['user_id']."'"); }
@@ -36,17 +35,20 @@ echo "<head>\n<title>".$settings['sitename']."</title>\n";
 echo "<meta name='viewport' content='width=device-width, initial-scale=1.0'/>\n";
 echo "<meta charset='UTF-8'' />\n";
 echo '<!-- Bootstrap CSS -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-    crossorigin="anonymous"
-  />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>';
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />\n';
+echo "<link rel='stylesheet' href='admin_themes".$settings['admin_theme']."styles.css' type='text/css' media='screen' />\n";
 if (file_exists(IMAGES."favicon.ico")) { echo "<link rel='shortcut icon' href='".IMAGES."favicon.ico' type='image/x-icon' />\n"; }
 if (function_exists("get_head_tags")) { echo get_head_tags(); }
 echo "<script type='text/javascript' src='".INCLUDES."jquery/jquery.js'></script>\n";
